@@ -1,6 +1,6 @@
 # flutter_study
 
-flutter学习
+learn flutter
 
 ## Getting Started
 
