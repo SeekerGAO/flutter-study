@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -140,6 +141,22 @@ class EchoRoute extends StatelessWidget {
   }
 }
 
+/**
+ * 新增生成随机字符串
+ */
+class RandomWordsWidget extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    final wordPair = new WordPair.random();
+
+    return Padding(
+      padding: const EdgeInsets.all(7.0),
+      child: new Text("随机生成的字符串：" + wordPair.toString()),
+    );
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -246,7 +263,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: (){
                 Navigator.of(context).pushNamed("echo_page", arguments: "我是命名路由参数");
               },
-            )
+            ),
+
+            RandomWordsWidget(),
           ],
         ),
       ),
