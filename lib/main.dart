@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
+import 'counter_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,8 +30,14 @@ class MyApp extends StatelessWidget {
         "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'), // 注册首页路由
         "new_page": (context) => NewRoute(),
         "open_tip_page": (context) => RouterTestRoute(),
-        "tip_page": (context) => TipRoute(text: '',),
+        "tip_page": (context) => TipRoute(
+              text: '',
+            ),
         "echo_page": (context) => EchoRoute(),
+
+        "context_test": (context) => ContextTest(),
+
+        "context_state": (context) => ContextState(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -37,8 +45,7 @@ class MyApp extends StatelessWidget {
 }
 
 /// 新增路由
-class NewRoute extends StatelessWidget{
-
+class NewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -54,7 +61,7 @@ class NewRoute extends StatelessWidget{
 }
 
 /// 路由传值
-class TipRoute extends StatelessWidget{
+class TipRoute extends StatelessWidget {
   TipRoute({
     Key key,
     @required this.text, // 接受一个text参数
@@ -70,25 +77,25 @@ class TipRoute extends StatelessWidget{
         title: Text("提示"),
       ),
       body: Padding(
-          padding: EdgeInsets.all(18),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Text(text),
-                RaisedButton(
-                  onPressed: () => Navigator.pop(context, "我是返回值"),
-                  child: Text("返回"),
-                )
-              ],
-            ),
+        padding: EdgeInsets.all(18),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Text(text),
+              RaisedButton(
+                onPressed: () => Navigator.pop(context, "我是返回值"),
+                child: Text("返回"),
+              )
+            ],
           ),
+        ),
       ),
     );
   }
 }
 
 /// 路由传值页面
-class RouterTestRoute extends StatelessWidget{
+class RouterTestRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -97,7 +104,8 @@ class RouterTestRoute extends StatelessWidget{
       child: RaisedButton(
         onPressed: () async {
           // 打开TipRoute，并等待返回结果
-          var result = await Navigator.push(context, MaterialPageRoute(builder: (context) {
+          var result = await Navigator.push(context,
+              MaterialPageRoute(builder: (context) {
             return TipRoute(
               // 路由参数
               text: "我是提示xxx",
@@ -114,27 +122,24 @@ class RouterTestRoute extends StatelessWidget{
 
 /// 命名路由参数传递
 class EchoRoute extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     //获取路由参数
-    var args=ModalRoute.of(context).settings.arguments;
+    var args = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("命名路由参数传递"),
-        ),
-        body: Center(
-          child: Text(args),
-
-        ),
+      appBar: AppBar(
+        title: Text("命名路由参数传递"),
+      ),
+      body: Center(
+        child: Text(args),
+      ),
     );
   }
 }
 
 /// 新增生成随机字符串
-class RandomWordsWidget extends StatelessWidget{
+class RandomWordsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -143,6 +148,86 @@ class RandomWordsWidget extends StatelessWidget{
     return Padding(
       padding: const EdgeInsets.all(7.0),
       child: new Text("随机生成的字符串：" + wordPair.toString()),
+    );
+  }
+}
+
+/// StatelessWidget
+class EchoString extends StatelessWidget {
+  const EchoString({
+    Key key,
+    @required this.text,
+    this.backgroundColor: Colors.grey,
+  }) : super(key: key);
+
+  final String text;
+  final Color backgroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Center(
+      child: new Container(
+        color: backgroundColor,
+        child: Text(text),
+      ),
+    );
+  }
+}
+
+/// Context
+class ContextTest extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Context Test"),
+      ),
+      body: Container(
+        child: Center(
+          child: Builder(builder: (context){
+            // 在Widget树上查找最近的父级`Scaffold`widget
+            Scaffold scaffold = context.ancestorWidgetOfExactType(Scaffold);
+            // 直接返回 AppBar的title， 此处实际上是Text("Context测试")
+            return (scaffold.appBar as AppBar).title;
+          }),
+        ),
+      ),
+    );
+  }
+}
+
+/// 在Widget树中获取State对象
+/// 通过Context获取
+class ContextState extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar( 
+        title: Text("子树中获取State对象"),
+      ),
+      body: Center(
+        child: Builder(builder: (context){
+          return RaisedButton(
+            onPressed: () {
+              // 查找父级最近的Scaffold对应的ScaffoldState对象
+              // StatefulWidget的状态是不希望暴露
+              // ScaffoldState _state = context.ancestorStateOfType(TypeMatcher<ScaffoldState>());
+              // StatefulWidget的状态是希望暴露
+              ScaffoldState _state = Scaffold.of(context);
+              // 调用ScaffoldState的showSnackBar来弹出SnackBar
+              _state.showSnackBar(
+                SnackBar(
+                  content: Text("我是SnackBar"),
+                ),
+              );
+            },
+            child: Text("显示SnackBar"),
+          );
+        }),
+      ),
     );
   }
 }
@@ -220,42 +305,60 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-
             FlatButton(
               child: Text("open new route"),
               textColor: Colors.blue,
-              onPressed: (){
+              onPressed: () {
                 // 导航到新路由
 //                Navigator.push(context,
 //                    MaterialPageRoute(builder: (context){
 //                      return NewRoute();
 //                    })
 //                );
-                 Navigator.pushNamed(context, "new_page");
+                Navigator.pushNamed(context, "new_page");
               },
             ),
-
             FlatButton(
               child: Text("Route send value"),
               textColor: Colors.blue,
-              onPressed: (){
+              onPressed: () {
 //                Navigator.push(context, MaterialPageRoute(builder: (context) {
 //                  return RouterTestRoute();
 //                }));
 
-                  Navigator.pushNamed(context, "open_tip_page");
+                Navigator.pushNamed(context, "open_tip_page");
               },
             ),
-
             FlatButton(
               child: Text("Route echo value"),
               textColor: Colors.blue,
-              onPressed: (){
-                Navigator.of(context).pushNamed("echo_page", arguments: "我是命名路由参数");
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed("echo_page", arguments: "我是命名路由参数");
               },
             ),
 
             RandomWordsWidget(),
+
+            EchoString(text: "This is echo string",),
+
+            FlatButton(
+              child: Text("Context Test"),
+              textColor: Colors.blue,
+              onPressed: (){
+                Navigator.pushNamed(context, "context_test");
+              },
+            ),
+
+            CounterWidget(),
+
+            FlatButton(
+              child: Text("Context State"),
+              textColor: Colors.blue,
+              onPressed: (){
+                Navigator.pushNamed(context, "context_state");
+              },
+            ),
           ],
         ),
       ),
@@ -267,4 +370,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
