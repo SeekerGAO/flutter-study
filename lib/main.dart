@@ -5,6 +5,7 @@ import 'counter_page.dart';
 
 import 'tapboxA.dart';
 import 'tapboxB.dart';
+import 'tapboxC.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
         "tap_box_a": (context) => TapBoxA(),
 
         "tap_box_b": (context) => TapBoxB(),
+
+        "tap_box_c": (context) => TapBoxC(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -380,6 +383,14 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.blue,
               onPressed: (){
                 Navigator.pushNamed(context, "tap_box_b");
+              },
+            ),
+
+            FlatButton(
+              child: Text("TapBoxC"),
+              textColor: Colors.blue,
+              onPressed: (){
+                Navigator.pushNamed(context, "tap_box_c");
               },
             ),
           ],
