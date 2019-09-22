@@ -4,6 +4,7 @@ import 'package:english_words/english_words.dart';
 import 'counter_page.dart';
 
 import 'tapboxA.dart';
+import 'tapboxB.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +43,8 @@ class MyApp extends StatelessWidget {
         "context_state": (context) => ContextState(),
 
         "tap_box_a": (context) => TapBoxA(),
+
+        "tap_box_b": (context) => TapBoxB(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -369,6 +372,14 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.blue,
               onPressed: (){
                 Navigator.pushNamed(context, "tap_box_a");
+              },
+            ),
+
+            FlatButton(
+              child: Text("TapBoxB"),
+              textColor: Colors.blue,
+              onPressed: (){
+                Navigator.pushNamed(context, "tap_box_b");
               },
             ),
           ],
