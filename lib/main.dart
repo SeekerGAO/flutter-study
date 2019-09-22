@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'), // 注册首页路由
         "new_page": (context) => NewRoute(),
         "open_tip_page": (context) => RouterTestRoute(),
-        "tip_page": (context) => TipRoute(),
+        "tip_page": (context) => TipRoute(text: '',),
         "echo_page": (context) => EchoRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -36,9 +36,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/**
- * 新增路由
- */
+/// 新增路由
 class NewRoute extends StatelessWidget{
 
   @override
@@ -55,9 +53,7 @@ class NewRoute extends StatelessWidget{
   }
 }
 
-/**
- * 路由传值
- */
+/// 路由传值
 class TipRoute extends StatelessWidget{
   TipRoute({
     Key key,
@@ -91,9 +87,7 @@ class TipRoute extends StatelessWidget{
   }
 }
 
-/**
- * 路由传值页面
- */
+/// 路由传值页面
 class RouterTestRoute extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -118,9 +112,7 @@ class RouterTestRoute extends StatelessWidget{
   }
 }
 
-/**
- * 命名路由参数传递
- */
+/// 命名路由参数传递
 class EchoRoute extends StatelessWidget {
 
   @override
@@ -141,9 +133,7 @@ class EchoRoute extends StatelessWidget {
   }
 }
 
-/**
- * 新增生成随机字符串
- */
+/// 新增生成随机字符串
 class RandomWordsWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

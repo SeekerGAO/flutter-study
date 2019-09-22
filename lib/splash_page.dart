@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-/**
- * 启动页面
- */
+/// 启动页面
 class SplashPage extends StatefulWidget{
   SplashPage({Key key, this.title}) : super(key: key);
 
