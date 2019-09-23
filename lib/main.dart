@@ -7,6 +7,8 @@ import 'tapboxA.dart';
 import 'tapboxB.dart';
 import 'tapboxC.dart';
 
+import 'image_and_icon.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -48,6 +50,8 @@ class MyApp extends StatelessWidget {
         "tap_box_b": (context) => TapBoxB(),
 
         "tap_box_c": (context) => TapBoxC(),
+
+        "image_and_icon": (context) => ImageAndIcon(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -430,7 +434,19 @@ class _MyHomePageState extends State<MyHomePage> {
               splashColor: Colors.grey,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
               onPressed: (){},
-            )
+            ),
+
+            RaisedButton(
+              child: Text("Go To ImageAndIcon Page"),
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+              splashColor: Colors.grey,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+              onPressed: (){
+                Navigator.pushNamed(context, "image_and_icon");
+              },
+            ),
           ],
         ),
       ),
