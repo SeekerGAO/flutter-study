@@ -242,6 +242,23 @@ class ContextState extends StatelessWidget{
   }
 }
 
+/// 使用字体
+class TextFonts extends StatelessWidget{
+
+   final textStyle = const TextStyle(
+    fontFamily: 'LiuJianMaoCao'
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Text(
+      "This is Text Style",
+      style: textStyle,
+    );
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -387,12 +404,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
             FlatButton(
-              child: Text("TapBoxC"),
+              child: Text("TapBoxC",style: new TextStyle(fontFamily: 'ZCOOLKuaiLe'),),
               textColor: Colors.blue,
               onPressed: (){
                 Navigator.pushNamed(context, "tap_box_c");
               },
             ),
+
+            TextFonts(),
           ],
         ),
       ),

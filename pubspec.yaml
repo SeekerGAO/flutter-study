@@ -74,5 +74,15 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+
+  fonts:
+    - family: LiuJianMaoCao
+      fonts:
+        - asset: assets/fonts/LiuJianMaoCao-Regular.ttf
+    - family: ZCOOLKuaiLe
+      fonts:
+        - asset: assets/fonts/ZCOOLKuaiLe-Regular.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
