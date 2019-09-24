@@ -9,6 +9,8 @@ import 'tapboxC.dart';
 
 import 'image_and_icon.dart';
 
+import 'switch_and_checkbox.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
         "tap_box_c": (context) => TapBoxC(),
 
         "image_and_icon": (context) => ImageAndIcon(),
+
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -312,142 +315,146 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            FlatButton(
-              child: Text("open new route"),
-              textColor: Colors.blue,
-              onPressed: () {
-                // 导航到新路由
+        child: SingleChildScrollView(
+          child: Column(
+            // Column is also layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Invoke "debug painting" (press "p" in the console, choose the
+            // "Toggle Debug Paint" action from the Flutter Inspector in Android
+            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+            // to see the wireframe for each widget.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.display1,
+              ),
+              FlatButton(
+                child: Text("open new route"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  // 导航到新路由
 //                Navigator.push(context,
 //                    MaterialPageRoute(builder: (context){
 //                      return NewRoute();
 //                    })
 //                );
-                Navigator.pushNamed(context, "new_page");
-              },
-            ),
-            FlatButton(
-              child: Text("Route send value"),
-              textColor: Colors.blue,
-              onPressed: () {
+                  Navigator.pushNamed(context, "new_page");
+                },
+              ),
+              FlatButton(
+                child: Text("Route send value"),
+                textColor: Colors.blue,
+                onPressed: () {
 //                Navigator.push(context, MaterialPageRoute(builder: (context) {
 //                  return RouterTestRoute();
 //                }));
 
-                Navigator.pushNamed(context, "open_tip_page");
-              },
-            ),
-            FlatButton(
-              child: Text("Route echo value"),
-              textColor: Colors.blue,
-              onPressed: () {
-                Navigator.of(context)
-                    .pushNamed("echo_page", arguments: "我是命名路由参数");
-              },
-            ),
+                  Navigator.pushNamed(context, "open_tip_page");
+                },
+              ),
+              FlatButton(
+                child: Text("Route echo value"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed("echo_page", arguments: "我是命名路由参数");
+                },
+              ),
 
-            RandomWordsWidget(),
+              RandomWordsWidget(),
 
-            EchoString(text: "This is echo string",),
+              EchoString(text: "This is echo string",),
 
-            FlatButton(
-              child: Text("Context Test"),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.pushNamed(context, "context_test");
-              },
-            ),
+              FlatButton(
+                child: Text("Context Test"),
+                textColor: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, "context_test");
+                },
+              ),
 
 //            CounterWidget(),
 
-            FlatButton(
-              child: Text("Context State"),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.pushNamed(context, "context_state");
-              },
-            ),
+              FlatButton(
+                child: Text("Context State"),
+                textColor: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, "context_state");
+                },
+              ),
 
-            FlatButton(
-              child: Text("TapBoxA"),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.pushNamed(context, "tap_box_a");
-              },
-            ),
+              FlatButton(
+                child: Text("TapBoxA"),
+                textColor: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, "tap_box_a");
+                },
+              ),
 
-            FlatButton(
-              child: Text("TapBoxB"),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.pushNamed(context, "tap_box_b");
-              },
-            ),
+              FlatButton(
+                child: Text("TapBoxB"),
+                textColor: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, "tap_box_b");
+                },
+              ),
 
-            FlatButton(
-              child: Text("TapBoxC",style: new TextStyle(fontFamily: 'ZCOOLKuaiLe'),),
-              textColor: Colors.blue,
-              onPressed: (){
-                Navigator.pushNamed(context, "tap_box_c");
-              },
-            ),
+              FlatButton(
+                child: Text("TapBoxC",style: new TextStyle(fontFamily: 'ZCOOLKuaiLe'),),
+                textColor: Colors.blue,
+                onPressed: (){
+                  Navigator.pushNamed(context, "tap_box_c");
+                },
+              ),
 
-            TextFonts(),
+              TextFonts(),
 
-            FlatButton(
-              child: Text("Submit"),
-              color: Colors.blue,
-              highlightColor: Colors.blue[700],
-              colorBrightness: Brightness.dark,
-              splashColor: Colors.grey,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-              onPressed: (){},
-            ),
-            RaisedButton(
-              child: Text("Submit"),
-              color: Colors.blue,
-              highlightColor: Colors.blue[700],
-              colorBrightness: Brightness.dark,
-              splashColor: Colors.grey,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-              onPressed: (){},
-            ),
+              FlatButton(
+                child: Text("Submit"),
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: (){},
+              ),
+              RaisedButton(
+                child: Text("Submit"),
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: (){},
+              ),
 
-            RaisedButton(
-              child: Text("Go To ImageAndIcon Page"),
-              color: Colors.blue,
-              highlightColor: Colors.blue[700],
-              colorBrightness: Brightness.dark,
-              splashColor: Colors.grey,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-              onPressed: (){
-                Navigator.pushNamed(context, "image_and_icon");
-              },
-            ),
-          ],
+              RaisedButton(
+                child: Text("Go To ImageAndIcon Page"),
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: (){
+                  Navigator.pushNamed(context, "image_and_icon");
+                },
+              ),
+
+              SwitchAndCheckBoxRoute()
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
