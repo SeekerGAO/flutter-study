@@ -11,6 +11,8 @@ import 'image_and_icon.dart';
 
 import 'switch_and_checkbox.dart';
 
+import 'input_and_form.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -55,6 +57,7 @@ class MyApp extends StatelessWidget {
 
         "image_and_icon": (context) => ImageAndIcon(),
 
+        "input_and_form":(context) => InputAndFormRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -452,7 +455,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
 
-              SwitchAndCheckBoxRoute()
+              SwitchAndCheckBoxRoute(),
+
+              RaisedButton(
+                child: Text("Go To InputAndForm Page"),
+                color: Colors.blue,
+                colorBrightness: Brightness.dark,
+                onPressed: (){
+                  Navigator.pushNamed(context, "input_and_form");
+                },
+              ),
             ],
           ),
         ),
