@@ -13,6 +13,8 @@ import 'switch_and_checkbox.dart';
 
 import 'input_and_form.dart';
 
+import 'progress_indicator.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -58,6 +60,8 @@ class MyApp extends StatelessWidget {
         "image_and_icon": (context) => ImageAndIcon(),
 
         "input_and_form":(context) => InputAndFormRoute(),
+
+        "progress_indicator": (context) => ProgressIndicatorRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -463,6 +467,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 colorBrightness: Brightness.dark,
                 onPressed: (){
                   Navigator.pushNamed(context, "input_and_form");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To ProgressIndicator Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "progress_indicator");
                 },
               ),
             ],
