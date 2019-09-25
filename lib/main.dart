@@ -15,6 +15,8 @@ import 'input_and_form.dart';
 
 import 'progress_indicator.dart';
 
+import 'row_and_column.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -62,6 +64,8 @@ class MyApp extends StatelessWidget {
         "input_and_form":(context) => InputAndFormRoute(),
 
         "progress_indicator": (context) => ProgressIndicatorRoute(),
+
+        "row_and_column":(context) => RowAndCoulmnRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -475,6 +479,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "progress_indicator");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To RowAndColumn Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "row_and_column");
                 },
               ),
             ],
