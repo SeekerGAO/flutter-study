@@ -19,6 +19,8 @@ import 'row_and_column.dart';
 
 import 'flex_layout_page.dart';
 
+import 'wrap_and_flow.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -70,6 +72,8 @@ class MyApp extends StatelessWidget {
         "row_and_column":(context) => RowAndCoulmnRoute(),
 
         "flex_layout": (context) => FlexLayoutRoute(),
+
+        "wrap_and_flow": (context) => WrapAndFlowRoute()
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -499,6 +503,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "flex_layout");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To WrapAndFlow Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "wrap_and_flow");
                 },
               ),
             ],
