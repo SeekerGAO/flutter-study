@@ -17,6 +17,8 @@ import 'progress_indicator.dart';
 
 import 'row_and_column.dart';
 
+import 'flex_layout_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -66,6 +68,8 @@ class MyApp extends StatelessWidget {
         "progress_indicator": (context) => ProgressIndicatorRoute(),
 
         "row_and_column":(context) => RowAndCoulmnRoute(),
+
+        "flex_layout": (context) => FlexLayoutRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -487,6 +491,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "row_and_column");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To FlexLayout Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "flex_layout");
                 },
               ),
             ],
