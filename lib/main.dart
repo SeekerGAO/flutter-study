@@ -23,6 +23,8 @@ import 'wrap_and_flow.dart';
 
 import 'stack_and_positioned.dart';
 
+import 'align_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -78,6 +80,8 @@ class MyApp extends StatelessWidget {
         "wrap_and_flow": (context) => WrapAndFlowRoute(),
 
         "stack_and_positioned": (context) => StackAndPositionedRoute(),
+
+        "align_page": (context) => AlignRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -524,6 +528,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, "stack_and_positioned");
                   },
+              ),
+
+              FlatButton(
+                child: Text("Go To Align Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "align_page");
+                },
               ),
             ],
           ),
