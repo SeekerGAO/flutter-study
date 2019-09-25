@@ -21,6 +21,8 @@ import 'flex_layout_page.dart';
 
 import 'wrap_and_flow.dart';
 
+import 'stack_and_positioned.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -73,7 +75,9 @@ class MyApp extends StatelessWidget {
 
         "flex_layout": (context) => FlexLayoutRoute(),
 
-        "wrap_and_flow": (context) => WrapAndFlowRoute()
+        "wrap_and_flow": (context) => WrapAndFlowRoute(),
+
+        "stack_and_positioned": (context) => StackAndPositionedRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -512,6 +516,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, "wrap_and_flow");
                 },
+              ),
+
+              FlatButton(
+                  child: Text("Go To StackAndPisitioned Page"),
+                  textColor: Colors.blue,
+                  onPressed: () {
+                    Navigator.pushNamed(context, "stack_and_positioned");
+                  },
               ),
             ],
           ),
