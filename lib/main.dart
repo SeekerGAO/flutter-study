@@ -30,6 +30,8 @@ import 'padding_page.dart';
 
 import 'constrainedbox_page.dart';
 
+import 'complete_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -91,6 +93,8 @@ class MyApp extends StatelessWidget {
         "padding_page": (context) => PaddingRoute(),
 
         "constrainedbox_page":(context) => ConstrainedBoxRoute(),
+
+        "complete_page": (context) => CompleteRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -693,6 +697,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     "卡片", style: TextStyle(color: Colors.white, fontSize: 40.0),
                   ),
                 ),
+              ),
+
+              FlatButton(
+                child: Text("Go To Complete Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "complete_page");
+                },
               ),
             ],
           ),
