@@ -32,6 +32,8 @@ import 'constrainedbox_page.dart';
 
 import 'complete_page.dart';
 
+import 'clip_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -95,6 +97,8 @@ class MyApp extends StatelessWidget {
         "constrainedbox_page":(context) => ConstrainedBoxRoute(),
 
         "complete_page": (context) => CompleteRoute(),
+
+        "clip_page":(context) => ClipRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -704,6 +708,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "complete_page");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To Clip Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "clip_page");
                 },
               ),
             ],

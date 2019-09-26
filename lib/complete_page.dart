@@ -128,13 +128,13 @@ class MyDrawer extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ClipOval(
                       child: Image.asset(
-                        "imgs/avatar.png",
+                        "assets/images/avatar.png",
                         width: 80,
                       ),
                     ),
                   ),
                   Text(
-                    "Wendux",
+                    "Flutter",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
                 ],
