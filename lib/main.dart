@@ -27,6 +27,8 @@ import 'align_page.dart';
 
 import 'padding_page.dart';
 
+import 'constrainedbox_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -86,6 +88,8 @@ class MyApp extends StatelessWidget {
         "align_page": (context) => AlignRoute(),
 
         "padding_page": (context) => PaddingRoute(),
+
+        "constrainedbox_page":(context) => ConstrainedBoxRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -547,6 +551,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "padding_page");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To ConstrainedBox Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "constrainedbox_page");
                 },
               ),
             ],
