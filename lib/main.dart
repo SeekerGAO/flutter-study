@@ -82,11 +82,11 @@ class MyApp extends StatelessWidget {
 
         "image_and_icon": (context) => ImageAndIcon(),
 
-        "input_and_form":(context) => InputAndFormRoute(),
+        "input_and_form": (context) => InputAndFormRoute(),
 
         "progress_indicator": (context) => ProgressIndicatorRoute(),
 
-        "row_and_column":(context) => RowAndCoulmnRoute(),
+        "row_and_column": (context) => RowAndCoulmnRoute(),
 
         "flex_layout": (context) => FlexLayoutRoute(),
 
@@ -98,13 +98,13 @@ class MyApp extends StatelessWidget {
 
         "padding_page": (context) => PaddingRoute(),
 
-        "constrainedbox_page":(context) => ConstrainedBoxRoute(),
+        "constrainedbox_page": (context) => ConstrainedBoxRoute(),
 
         "complete_page": (context) => CompleteRoute(),
 
-        "clip_page":(context) => ClipRoute(),
+        "clip_page": (context) => ClipRoute(),
 
-        "singlechildscrollview_page":(context) => SingleChildScrollViewRoute(),
+        "singlechildscrollview_page": (context) => SingleChildScrollViewRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -243,7 +243,7 @@ class EchoString extends StatelessWidget {
 }
 
 /// Context
-class ContextTest extends StatelessWidget{
+class ContextTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -253,7 +253,7 @@ class ContextTest extends StatelessWidget{
       ),
       body: Container(
         child: Center(
-          child: Builder(builder: (context){
+          child: Builder(builder: (context) {
             // 在Widget树上查找最近的父级`Scaffold`widget
             Scaffold scaffold = context.ancestorWidgetOfExactType(Scaffold);
             // 直接返回 AppBar的title， 此处实际上是Text("Context测试")
@@ -267,16 +267,16 @@ class ContextTest extends StatelessWidget{
 
 /// 在Widget树中获取State对象
 /// 通过Context获取
-class ContextState extends StatelessWidget{
+class ContextState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar( 
+      appBar: AppBar(
         title: Text("子树中获取State对象"),
       ),
       body: Center(
-        child: Builder(builder: (context){
+        child: Builder(builder: (context) {
           return RaisedButton(
             onPressed: () {
               // 查找父级最近的Scaffold对应的ScaffoldState对象
@@ -300,11 +300,8 @@ class ContextState extends StatelessWidget{
 }
 
 /// 使用字体
-class TextFonts extends StatelessWidget{
-
-   final textStyle = const TextStyle(
-    fontFamily: 'LiuJianMaoCao'
-  );
+class TextFonts extends StatelessWidget {
+  final textStyle = const TextStyle(fontFamily: 'LiuJianMaoCao');
 
   @override
   Widget build(BuildContext context) {
@@ -406,6 +403,19 @@ class _MyHomePageState extends State<MyHomePage> {
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              ExpansionTile(
+                title: Text("第七章：功能型组件"),
+                children: _generateItem(context, [
+                  PageInfo(
+                      "导航返回拦截（WillPopScope）", (ctx) => WillPopScopeRoute()),
+                  PageInfo("数据共享（InheritedWidget）", (ctx) => InheritedWidgetRoute())
+                ]),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+              ),
+
               Text(
                 'You have pushed the button this many times:',
               ),
@@ -448,12 +458,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
               RandomWordsWidget(),
 
-              EchoString(text: "This is echo string",),
+              EchoString(
+                text: "This is echo string",
+              ),
 
               FlatButton(
                 child: Text("Context Test"),
                 textColor: Colors.blue,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "context_test");
                 },
               ),
@@ -463,7 +475,7 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(
                 child: Text("Context State"),
                 textColor: Colors.blue,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "context_state");
                 },
               ),
@@ -471,7 +483,7 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(
                 child: Text("TapBoxA"),
                 textColor: Colors.blue,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "tap_box_a");
                 },
               ),
@@ -479,15 +491,18 @@ class _MyHomePageState extends State<MyHomePage> {
               FlatButton(
                 child: Text("TapBoxB"),
                 textColor: Colors.blue,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "tap_box_b");
                 },
               ),
 
               FlatButton(
-                child: Text("TapBoxC",style: new TextStyle(fontFamily: 'ZCOOLKuaiLe'),),
+                child: Text(
+                  "TapBoxC",
+                  style: new TextStyle(fontFamily: 'ZCOOLKuaiLe'),
+                ),
                 textColor: Colors.blue,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "tap_box_c");
                 },
               ),
@@ -500,8 +515,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                onPressed: (){},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {},
               ),
               RaisedButton(
                 child: Text("Submit"),
@@ -509,8 +525,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                onPressed: (){},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {},
               ),
 
               RaisedButton(
@@ -519,8 +536,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                onPressed: (){
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
                   Navigator.pushNamed(context, "image_and_icon");
                 },
               ),
@@ -531,7 +549,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("Go To InputAndForm Page"),
                 color: Colors.blue,
                 colorBrightness: Brightness.dark,
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, "input_and_form");
                 },
               ),
@@ -569,11 +587,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               FlatButton(
-                  child: Text("Go To StackAndPisitioned Page"),
-                  textColor: Colors.blue,
-                  onPressed: () {
-                    Navigator.pushNamed(context, "stack_and_positioned");
-                  },
+                child: Text("Go To StackAndPisitioned Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "stack_and_positioned");
+                },
               ),
 
               FlatButton(
@@ -604,20 +622,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: DecoratedBox(
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(colors:[Colors.red,Colors.orange[700]]), //背景渐变
+                        gradient: LinearGradient(
+                            colors: [Colors.red, Colors.orange[700]]), //背景渐变
                         borderRadius: BorderRadius.circular(3.0), //3像素圆角
-                        boxShadow: [ //阴影
+                        boxShadow: [
+                          //阴影
                           BoxShadow(
-                              color:Colors.black54,
-                              offset: Offset(2.0,2.0),
-                              blurRadius: 4.0
-                          )
-                        ]
-                    ),
-                    child: Padding(padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 18.0),
-                      child: Text("Login", style: TextStyle(color: Colors.white),),
-                    )
-                ),
+                              color: Colors.black54,
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 4.0)
+                        ]),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 80.0, vertical: 18.0),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )),
               ),
 
               Padding(
@@ -639,7 +661,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
                 child: DecoratedBox(
-                  decoration:BoxDecoration(color: Colors.red),
+                  decoration: BoxDecoration(color: Colors.red),
                   //默认原点为左上角，左移20像素，向上平移5像素
                   child: Transform.translate(
                     offset: Offset(-20.0, -5.0),
@@ -651,10 +673,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
                 child: DecoratedBox(
-                  decoration:BoxDecoration(color: Colors.red),
+                  decoration: BoxDecoration(color: Colors.red),
                   child: Transform.rotate(
                     //旋转90度
-                    angle:math.pi/2 ,
+                    angle: math.pi / 2,
                     child: Text("旋转"),
                   ),
                 ),
@@ -663,28 +685,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 50.0),
                 child: DecoratedBox(
-                    decoration:BoxDecoration(color: Colors.red),
+                    decoration: BoxDecoration(color: Colors.red),
                     child: Transform.scale(
                         scale: 1.5, //放大到1.5倍
-                        child: Text("缩放")
-                    )
-                ),
-                ),
-
-              Padding(
-                padding: const EdgeInsets.only(bottom: 50.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    DecoratedBox(
-                        decoration:BoxDecoration(color: Colors.red),
-                        child: Transform.scale(scale: 1.5,
-                            child: Text("Transform的变换是应用在绘制阶段")
-                        )
-                    ),
-                    Text("你好", style: TextStyle(color: Colors.green, fontSize: 18.0),)
-                  ],
-                )
+                        child: Text("缩放"))),
               ),
 
               Padding(
@@ -693,40 +697,62 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       DecoratedBox(
-                        decoration: BoxDecoration(color: Colors.red),
-                        //将Transform.rotate换成RotatedBox
-                        child: RotatedBox(
-                          quarterTurns: 1, //旋转90度(1/4圈)
-                          child: Text("RotatedBox是作用于layout阶段，所以子组件会旋转90度（而不只是绘制的内容"),
-                        ),
-                      ),
-                      Text("你好", style: TextStyle(color: Colors.green, fontSize: 18.0),)
+                          decoration: BoxDecoration(color: Colors.red),
+                          child: Transform.scale(
+                              scale: 1.5, child: Text("Transform的变换是应用在绘制阶段"))),
+                      Text(
+                        "你好",
+                        style: TextStyle(color: Colors.green, fontSize: 18.0),
+                      )
                     ],
-                  ),
+                  )),
+
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    DecoratedBox(
+                      decoration: BoxDecoration(color: Colors.red),
+                      //将Transform.rotate换成RotatedBox
+                      child: RotatedBox(
+                        quarterTurns: 1, //旋转90度(1/4圈)
+                        child: Text(
+                            "RotatedBox是作用于layout阶段，所以子组件会旋转90度（而不只是绘制的内容"),
+                      ),
+                    ),
+                    Text(
+                      "你好",
+                      style: TextStyle(color: Colors.green, fontSize: 18.0),
+                    )
+                  ],
+                ),
               ),
 
               Padding(
                 padding: const EdgeInsets.only(bottom: 100.0),
                 child: Container(
                   margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
-                  constraints: BoxConstraints.tightFor(width: 200.0, height: 150.0), //卡片大小
-                  decoration: BoxDecoration(//背景装饰
-                      gradient: RadialGradient( //背景径向渐变
+                  constraints: BoxConstraints.tightFor(
+                      width: 200.0, height: 150.0), //卡片大小
+                  decoration: BoxDecoration(
+                      //背景装饰
+                      gradient: RadialGradient(
+                          //背景径向渐变
                           colors: [Colors.red, Colors.orange],
                           center: Alignment.topLeft,
-                          radius: .98
-                      ),
-                      boxShadow: [ //卡片阴影
+                          radius: .98),
+                      boxShadow: [
+                        //卡片阴影
                         BoxShadow(
                             color: Colors.black54,
                             offset: Offset(2.0, 2.0),
-                            blurRadius: 4.0
-                        )
-                      ]
-                  ),
+                            blurRadius: 4.0)
+                      ]),
                   transform: Matrix4.rotationZ(.2), //卡片倾斜变换
                   alignment: Alignment.center, //卡片内文字居中
-                  child: Text( //卡片文字
+                  child: Text(
+                    //卡片文字
                     "卡片", style: TextStyle(color: Colors.white, fontSize: 40.0),
                   ),
                 ),
@@ -755,13 +781,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, "singlechildscrollview_page");
                 },
               ),
-
-              ExpansionTile(
-                title: Text("第七章：功能型组件"),
-                children: _generateItem(context, [
-                  PageInfo("导航返回拦截（WillPopScope）", (ctx) => WillPopScopeRoute()),
-                ]),
-              )
             ],
           ),
         ),
