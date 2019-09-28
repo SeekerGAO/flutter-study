@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'dart:math' as math;
+import 'widgets/page_scaffold.dart';
+import 'routes/index.dart';
 
 import 'counter_page.dart';
 
@@ -344,6 +346,29 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  void _openPage(BuildContext context, PageInfo page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      if (!page.withScaffold) {
+        return page.builder(context);
+      }
+      return PageScaffold(
+        title: page.title,
+        body: page.builder(context),
+        padding: page.padding,
+      );
+    }));
+  }
+
+  List<Widget> _generateItem(BuildContext context, List<PageInfo> children) {
+    return children.map<Widget>((page) {
+      return ListTile(
+        title: Text(page.title),
+        trailing: Icon(Icons.keyboard_arrow_right),
+        onTap: () => _openPage(context, page),
+      );
+    }).toList();
   }
 
   @override
@@ -730,6 +755,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, "singlechildscrollview_page");
                 },
               ),
+
+              ExpansionTile(
+                title: Text("第七章：功能型组件"),
+                children: _generateItem(context, [
+                  PageInfo("导航返回拦截（WillPopScope）", (ctx) => WillPopScopeRoute()),
+                ]),
+              )
             ],
           ),
         ),
