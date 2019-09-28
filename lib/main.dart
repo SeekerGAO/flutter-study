@@ -408,7 +408,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: _generateItem(context, [
                   PageInfo(
                       "导航返回拦截（WillPopScope）", (ctx) => WillPopScopeRoute()),
-                  PageInfo("数据共享（InheritedWidget）", (ctx) => InheritedWidgetRoute())
+                  PageInfo("数据共享（InheritedWidget）", (ctx) => InheritedWidgetRoute()),
+                  PageInfo("跨组件状态共享（Provider）", (ctx) => ProviderRoute()),
                 ]),
               ),
 
