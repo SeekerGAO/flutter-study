@@ -34,6 +34,8 @@ import 'complete_page.dart';
 
 import 'clip_page.dart';
 
+import 'singlechildscrollview_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -99,6 +101,8 @@ class MyApp extends StatelessWidget {
         "complete_page": (context) => CompleteRoute(),
 
         "clip_page":(context) => ClipRoute(),
+
+        "singlechildscrollview_page":(context) => SingleChildScrollViewRoute(),
       },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -716,6 +720,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.blue,
                 onPressed: () {
                   Navigator.pushNamed(context, "clip_page");
+                },
+              ),
+
+              FlatButton(
+                child: Text("Go To SingleChildScrollView Page"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "singlechildscrollview_page");
                 },
               ),
             ],
