@@ -410,6 +410,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       "导航返回拦截（WillPopScope）", (ctx) => WillPopScopeRoute()),
                   PageInfo("数据共享（InheritedWidget）", (ctx) => InheritedWidgetRoute()),
                   PageInfo("跨组件状态共享（Provider）", (ctx) => ProviderRoute()),
+                  PageInfo("颜色和主题", (ctx) => ThemeRoute()),
                 ]),
               ),
 
