@@ -416,6 +416,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ]),
               ),
 
+              ExpansionTile(
+                title: Text("第十一章：文件操作与网络请求"),
+                children: _generateItem(context, [
+                  PageInfo("文件操作", (ctx) => FileOperationsRoute()),
+                  PageInfo("通过HttpClient发起HTTP请求", (ctx) => HttpClientRoute()),
+                ]),
+              ),
+
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
               ),
