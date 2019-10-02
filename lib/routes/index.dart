@@ -7,3 +7,4 @@ export 'package:learn_flutter/chapter7/FutureBuilderAndStreamBuilder.dart';
 export 'package:learn_flutter/chapter11/FileOperations.dart';
 export 'package:learn_flutter/chapter11/HttpClientRoute.dart';
 export 'package:learn_flutter/chapter11/DioHttp.dart';
+export 'package:learn_flutter/chapter11/WebSocket.dart';

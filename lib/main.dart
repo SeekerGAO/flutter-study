@@ -422,6 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   PageInfo("文件操作", (ctx) => FileOperationsRoute()),
                   PageInfo("通过HttpClient发起HTTP请求", (ctx) => HttpClientRoute()),
                   PageInfo("Http请求-Dio http库", (ctx) => DioHttpRoute()),
+                  PageInfo("WebSockets", (ctx) => WebSocketRoute()),
                 ]),
               ),
 
