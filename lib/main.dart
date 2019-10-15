@@ -396,6 +396,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("第十二章：包与插件"),
                 children: _generateItem(context, [
                   PageInfo("开发Flutter插件", (ctx) => BatteryRoute()),
+                  PageInfo("Texture（示例：使用摄像头）", (ctx) => CameraRoute()),
                 ]),
               ),
 

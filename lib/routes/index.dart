@@ -44,3 +44,4 @@ export 'package:learn_flutter/chapter11/DioHttp.dart';
 export 'package:learn_flutter/chapter11/WebSocket.dart';
 
 export 'package:learn_flutter/chapter12/Battery.dart';
+export 'package:learn_flutter/chapter12/Camera.dart';
