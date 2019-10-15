@@ -4,40 +4,6 @@ import 'dart:math' as math;
 import 'widgets/page_scaffold.dart';
 import 'routes/index.dart';
 
-import 'counter_page.dart';
-
-import 'tapboxA.dart';
-import 'tapboxB.dart';
-import 'tapboxC.dart';
-
-import 'image_and_icon.dart';
-
-import 'switch_and_checkbox.dart';
-
-import 'input_and_form.dart';
-
-import 'progress_indicator.dart';
-
-import 'row_and_column.dart';
-
-import 'flex_layout_page.dart';
-
-import 'wrap_and_flow.dart';
-
-import 'stack_and_positioned.dart';
-
-import 'align_page.dart';
-
-import 'padding_page.dart';
-
-import 'constrainedbox_page.dart';
-
-import 'complete_page.dart';
-
-import 'clip_page.dart';
-
-import 'singlechildscrollview_page.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -423,6 +389,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   PageInfo("通过HttpClient发起HTTP请求", (ctx) => HttpClientRoute()),
                   PageInfo("Http请求-Dio http库", (ctx) => DioHttpRoute()),
                   PageInfo("WebSockets", (ctx) => WebSocketRoute()),
+                ]),
+              ),
+
+              ExpansionTile(
+                title: Text("第十二章：包与插件"),
+                children: _generateItem(context, [
+                  PageInfo("开发Flutter插件", (ctx) => BatteryRoute()),
                 ]),
               ),
 

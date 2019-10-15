@@ -21,7 +21,7 @@ class _TapBoxBState extends State<TapBoxB>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Container(
-      child: new TapBoxSon(
+      child: new TapBoxBSon(
         active: _active,
         onChanged: _handleTapChanged,
       )
@@ -29,8 +29,8 @@ class _TapBoxBState extends State<TapBoxB>{
   }
 }
 
-class TapBoxSon extends StatelessWidget{
-  TapBoxSon({
+class TapBoxBSon extends StatelessWidget{
+  TapBoxBSon({
     Key key,
     this.active: false,
     @required this.onChanged,

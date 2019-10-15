@@ -20,7 +20,7 @@ class _TapBoxCState extends State<TapBoxC>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new GestureDetector(
-      child: new TapBoxSon(
+      child: new TapBoxCSon(
         active: _active,
         onChanged: _handleTapboxChanged,
       ),
@@ -28,8 +28,8 @@ class _TapBoxCState extends State<TapBoxC>{
   }
 }
 
-class TapBoxSon extends StatefulWidget{
-  TapBoxSon({
+class TapBoxCSon extends StatefulWidget{
+  TapBoxCSon({
     Key key,
     this.active: false,
     @required this.onChanged,
@@ -39,11 +39,11 @@ class TapBoxSon extends StatefulWidget{
   final ValueChanged<bool> onChanged;
 
   @override
-  _TapBoxSonState createState() => new _TapBoxSonState();
+  _TapBoxCSonState createState() => new _TapBoxCSonState();
 }
 
 /// 在按下时添加绿色边框，当抬起时，取消高亮
-class _TapBoxSonState extends State<TapBoxSon>{
+class _TapBoxCSonState extends State<TapBoxCSon>{
   bool _highlight = false;
 
   // 手指按下
