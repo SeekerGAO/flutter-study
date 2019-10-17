@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'dart:math' as math;
+import 'chapter13/LocalizationsDelegate.dart';
 import 'widgets/page_scaffold.dart';
 import 'routes/index.dart';
 
@@ -25,6 +27,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+
+      localizationsDelegates: [
+        // 本地化的代理类
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        // 自定义Delegate
+        DemoLocalizationsDelegate(),
+      ],
 
       // 注册路由表
       routes: {
@@ -400,6 +410,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   PageInfo("Texture（示例：WebView）", (ctx) => PlatformViewRoute()),
                 ]),
               ),
+
+              ExpansionTile(
+                title: Text("第十三章：国际化"),
+                children: _generateItem(context, [
+                  PageInfo("实现Localizations", (ctx) => TestLocalizationsRoute()),
+                ]),
+              ),
+
 
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
