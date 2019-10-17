@@ -45,3 +45,4 @@ export 'package:learn_flutter/chapter11/WebSocket.dart';
 
 export 'package:learn_flutter/chapter12/Battery.dart';
 export 'package:learn_flutter/chapter12/Camera.dart';
+export 'package:learn_flutter/chapter12/PlatformView.dart';
